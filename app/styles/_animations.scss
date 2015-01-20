@@ -1,0 +1,27 @@
+.fade {
+  opacity: 1;
+}
+
+.fade.ng-hide-add.ng-hide-add-active,
+.fade.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all ease-in-out 0.5s;
+  transition: all ease-in-out 0.5s;
+}
+
+.fade.ng-hide {
+  opacity: 0;
+}
+
+.slide {
+  height: auto;
+}
+
+.slide.ng-hide-add.ng-hide-add-active,
+.slide.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all ease-in-out 0.5s;
+  transition: all ease-in-out 0.5s;
+}
+
+.slide.ng-hide {
+  height: 0px;
+}

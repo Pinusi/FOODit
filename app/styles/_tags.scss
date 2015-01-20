@@ -1,0 +1,109 @@
+// Tags
+$icon-height: 26px;
+$icon-width: 27px;
+
+.tags{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -12px;
+}
+
+.tag{
+    float: left;
+    /*@include border-radius(4px);*/
+    list-style: none;
+    i{
+        display: inline-block;
+    }
+}
+
+.charcoal {
+    background-image: url("../images/tag--charcoal.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.cheese {
+    background-image: url("../images/tag--cheese.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.chicken {
+    background-image: url("../images/tag--chicken.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.grilled {
+    background-image: url("../images/tag--grilled.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.high_in_protein {
+    background-image: url("../images/tag--high-protein.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.lamb {
+    background-image: url("../images/tag--lamb.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.pasta {
+    background-image: url("../images/tag--pasta.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.peanut {
+    background-image: url("../images/tag--peanut.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.pork {
+    background-image: url("../images/tag--peanut.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.seafood{
+    background-image: url("../images/tag--seafood.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.snack {
+    background-image: url("../images/tag--snack.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.spicy {
+    background-image: url("../images/tag--spicy.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.starter {
+    background-image: url("../images/tag--starter.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.sweet {
+    background-image: url("../images/tag--sweet.svg");
+    height: $icon-height;
+    width: $icon-width;
+}
+
+.vegetarian {
+    background-image: url("../images/tag--vegetarian.svg");
+    height: $icon-height;
+    width: $icon-width;
+}

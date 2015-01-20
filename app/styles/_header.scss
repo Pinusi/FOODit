@@ -1,0 +1,212 @@
+.basket {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: #C83A40;
+    @include box-sizing(border-box);
+
+    .basket_header{
+    	overflow: hidden;
+        height: 72px;
+        position: relative;
+
+        .basket_header_absolute{
+            position: absolute;
+            top: 0px;
+            padding: 11px 20px;
+            width: 100%;
+            @include box-sizing(border-box);
+        }
+
+	    .noitem{
+            p{
+    	    	font-size: 0.8em;
+    	        font-weight: normal;
+    	        padding: 4px 12px;
+    	        width: 100%;
+    	        background-color: #D74F53;
+    	        text-align: center;
+    	        color: #fff;
+    	        border: 1px solid #AF2E32;
+    	        @include box-sizing(border-box);
+                margin-top: 9px;
+            }
+	    }
+
+	    .basket_overview {
+	        cursor: pointer;
+
+	        .totalCount {
+	            display: inline-block;
+	            width: auto;
+	            color: #88151E;
+	            font-size: 0.7em;
+	            font-weight: normal;
+	            padding: 4px 8px;
+	            margin: 9px;
+	            background-color: #D74F53;
+	            border: 1px solid #A9222C;
+	            font-style: italic;
+	            float: left;
+	            border-radius: 2px;
+	        }
+
+	        .totalCost {
+	            display: inline-block;
+	            width: auto;
+	            color: #fff;
+	            font-size: 0.7em;
+	            font-weight: normal;
+	            padding: 4px 8px;
+	            margin: 9px;
+	            background-color: #D74F53;
+	            border: 1px solid #A9222C;
+	            font-style: normal;
+	            float: right;
+	            border-radius: 2px;
+	        }
+	    }
+        .basket_list_header{
+            /*padding: 11px 20px 0px 20px;*/
+
+            .title {
+                color: #fff;
+                margin: 9px 9px 0;
+            }
+
+            .subtitle {
+                color: #fff;
+                margin: -5px 9px 9px;
+                font-style: italic;
+                font-size: 0.6em;
+            }
+        }
+	}
+
+    .basket_panel {
+        /*max-height: 80%;*/
+        /*This is exactly as the design but I 
+            would rather have done all the list scrolling 
+            and the button fixed at the bottom and the max height.*/
+        width: 100%;
+        background-color: #C83A40;
+
+        .basket_list{
+        	padding: 11px 20px;
+
+        	.totalCount {
+	            font-size: 0.7em;
+	            margin-left: 10px;
+	            color: #821313;
+	            font-style: italic;
+	        }
+
+            /*This is exactly as the design but I 
+            would rather have done all the list scrolling 
+            and the button fixed at the bottom.*/
+	        .scroll{
+	        	-ms-overflow-style: none;
+	            overflow: -moz-scrollbars-none;
+	            overflow-y: scroll;
+	            max-height:200px;
+	        }
+
+	        .items {
+                list-style: none;
+                border: 1px solid #981D1D;
+                width:100%;
+                padding: 0;
+                border-spacing: 0;
+                border-collapse: collapse;
+
+                .item {
+                    border-bottom: 1px solid #981D1D;
+                    min-height: 44px;
+                    width: 100%;
+
+                    td{
+                    	color: #fff;
+                    	padding: 15px;
+                    	font-size: 0.8em; 
+                    	background-color: #D6504F;
+                    	font-family: Verdana, Geneva, sans-serif;
+						vertical-align: middle;
+                    }
+
+                    .count {
+                        background-color: #CB3A3D;
+						color: #fff;
+						width: 35px;
+						font-size: 0.7em;
+						text-align: center;
+						vertical-align: middle;
+						padding: 10px 5px;
+
+                        .modifier {
+                            color: #981D1D;
+                            cursor: pointer;
+
+                            &.plus{
+                            	margin-bottom: 5px;
+                            }
+
+                            &.minus{
+                            	margin-top: 5px;
+                            }
+                        }
+
+                        .total{
+                        	font-size: 1.1em;
+                        }
+
+                    }
+
+                    .cost {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        .confirm {
+            border-top: 1px solid #EC696D;
+            padding: 10px;
+
+            &.ng-hide {
+                opacity: 0;
+            }
+
+            .confirmationButton {
+                background-color: #fff;
+                width: 65%;
+                margin-right: 5%;
+                font-size: 0.8em;
+                padding: 4px 4px;
+                font-style: italic;
+                color: #C83A40;
+                border: 1px solid #981D1D;
+                text-align: center;
+                @include border-radius(2px);
+                cursor: pointer;
+                @include box-sizing (border-box);
+                float: left;
+            }
+
+            .totalCost {
+				width: 30%;
+				color: #fff;
+				font-size: 0.8em;
+				font-weight: normal;
+				padding: 4px 12px;
+				background-color: #D74F53;
+				border: 1px solid #A9222C;
+				float: left;
+				text-align: center;
+				@include border-radius(2px);
+				@include box-sizing (border-box);
+            }
+        }
+    }
+}

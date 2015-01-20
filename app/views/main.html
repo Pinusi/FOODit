@@ -1,8 +1,68 @@
-<ul class="meals">
-    <li class="meal" ng-repeat="meal in menu.meals">
-        <h4 class="name">{{meal.name}}</h4>
-        <img class="image" ng-src="{{meal.primaryImageUrl}}">
-        <p class="description">{{meal.description}}</p>
-        <p class="price">{{meal.price}}</p>
-    </li>
-</ul>
+<!-- BASKET -->
+<div class="basket" ng-Controller="BasketCtrl">
+	<div class="basket_header">
+		<div class="basket_header_absolute fade noitem" ng-hide="itemsNumber > 0 || basketVisible">
+			<p>It's time to order some delicious food</p>
+		</div>
+		<div class="basket_overview basket_header_absolute clearfix fade" ng-click="showBasket()" ng-show="itemsNumber > 0 && !basketVisible">
+	        <p ng-repeat="(type,items) in basketByType" class="totalCount">{{items.total}} {{type === 'main_courses' ? 'mains' : 'other'}}</p>
+	        <p class="totalCost clearfix">{{totalCost | currency:"£"}}</p>
+	    </div>
+	    <div class="basket_header_absolute basket_list_header fade" ng-show="basketVisible">
+            <p class="title">Your Order</p>
+            <p class="subtitle">{{restaurant}}</p>
+        </div>
+	</div>
+
+    <div class="basket_panel slide" ng-show="basketVisible">
+        <div class="basket_list">
+        	<div class="typeSection" ng-repeat="(type,items) in basketByType">
+	        	<p class="totalCount">{{items.total}} {{type === 'main_courses' ? 'mains' : 'other'}}</p>
+	        	<div class="scroll">
+		        	<table class="items">
+		                <tbody>
+		                    <tr class="item" ng-repeat="meal in items.meals">
+		                        <td class="count">
+	                                <div class="modifier plus" ng-click="addItem()">+</div>
+	                                <div class="total">{{meal.quantity}}</div>
+	                                <div class="modifier minus" ng-click="removeItem()">–</div>
+		                        </td>
+		                        <td class="name">{{meal.name}}</td>
+		                        <td class="cost">{{(meal.price * meal.quantity) | currency:"£"}}</td>
+		                    </tr>
+		                </tbody>
+		            </table>
+		        </div>
+	        </div>
+        </div>
+        <div class="confirm clearfix">
+            <p class="confirmationButton">Confirm Your Order</p>
+            <p class="totalCost">{{totalCost | currency:"£"}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- MENU -->
+<div class="menu" ng-class="{'doNotScroll': basketVisible}" ng-Controller="MainCtrl" ng-click="broadcastHideBasket()">
+	<h3 class="restaurant">{{restaurant}}</h3>
+	<ul class="meals">
+	    <li class="meal" ng-repeat="meal in menu.meals">
+	    	<img class="image" ng-src="{{meal.primaryImageUrl}}">
+	    	<p class="price">{{meal.price | currency:"£"}}</p>
+	        <div class="bottom-positon">
+		        <h4 class="name">{{meal.name}}</h4>
+		        <div class="white-rounded">
+		        	<ul class="tags">
+		                <li ng-repeat="tag in meal.tags | filterTags:'tags'" class="tag"><i class="{{tag}}"></i></li>
+		            </ul>
+		        	<p class="description">{{(meal.description | limitTo:meal.charLimit) || meal.description ||"No description available" }}
+		        	<span ng-click="showMore(meal)" ng-show="meal.charLimit == charLimit" class="expand"></span>
+		        	</p>
+		        	<a href="" class="add" ng-click="addItem()">Add To Your Order</a>
+		        	<!-- NOT CLEAR THE FUNCTION -->
+		        	<p class="options">3 options available</p>
+		        </div>
+		    </div>
+	    </li>
+	</ul>
+</div>
